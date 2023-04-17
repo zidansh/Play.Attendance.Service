@@ -41,8 +41,8 @@ namespace Play.Catalog.Service
             services.AddSingleton(serviceProvider =>
             {
                 var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
-                var mongoClient = new MongoClient(mongoDbSettings.connectionString);
-                return mongoClient.GetDatabase(serviceSettings.ServiceName);
+                var mongodbClient = new MongoClient(mongoDbSettings.connectionString);
+                return mongodbClient.GetDatabase(serviceSettings.ServiceName);
             });
 
             services.AddSingleton<IItemsRepository, ItemsRepository>();
